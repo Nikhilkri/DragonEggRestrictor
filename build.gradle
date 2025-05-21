@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 group 'com.overscarf'
@@ -14,15 +14,19 @@ repositories {
 dependencies {
     compileOnly 'io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT'
 }
+
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)  // Changed from 17 to 21
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
 shadowJar {
     archiveFileName = "DragonEggRestrictor-${version}.jar"
 }
-task wrapper(type: Wrapper) {
+
+// Gradle wrapper task
+wrapper {
     gradleVersion = "8.7"
+    distributionType = Wrapper.DistributionType.BIN
 }
