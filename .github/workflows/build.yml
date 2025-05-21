@@ -1,5 +1,7 @@
 name: Build Paper Plugin
 on: push
+permissions:
+  actions: write  # Required for artifact uploads
 jobs:
   build:
     runs-on: ubuntu-latest
