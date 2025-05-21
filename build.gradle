@@ -23,3 +23,6 @@ java {
 shadowJar {
     archiveFileName = "DragonEggRestrictor-${version}.jar"
 }
+task wrapper(type: Wrapper) {
+    gradleVersion = "8.7"
+}
