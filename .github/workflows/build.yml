@@ -11,14 +11,11 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      # Generate Gradle Wrapper
-      - name: Generate Gradle Wrapper
-        run: |
-          gradle wrapper --gradle-version 8.7 --distribution-type bin
-          chmod +x gradlew  # Make wrapper executable
+      - name: Install Gradle
+        run: sudo apt-get install -y gradle
 
       - name: Build Plugin
-        run: ./gradlew shadowJar
+        run: gradle shadowJar  # Uses system Gradle instead of ./gradlew
 
       - uses: actions/upload-artifact@v4
         with:
